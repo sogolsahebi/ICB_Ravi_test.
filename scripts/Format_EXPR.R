@@ -7,17 +7,17 @@ install.packages("Rgraphviz")
 library(CePa)
 
 # Data Reading
-# Define the path for the .gct file
+# Define the path for the .gct file.
 gct_file_path <- "C:/Users/sogol/OneDrive/Documents/BHK lab/Ravi/Source Data/Source Data/RNA/SU2C-MARK_Harmonized_rnaseqc_tpm_v1.gct"
 
-# Read the RNA-Seq data from the gct file
+# Read the RNA-Seq data from the gct file.
 expr <- read.gct(gct_file_path)
 
 # Data Cleaning
 # Convert column names: replace periods with hyphens
 new_colnames <- gsub("\\.", "-", colnames(expr))
 
-# Remove trailing -T1 or -T2 from column names (representing time points)
+# Remove trailing -T1 or -T2 from column names
 new_colnames <- gsub("-T1$|-T2$", "", new_colnames)
 
 # Reassign cleaned column names back to the dataset
